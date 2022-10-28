@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="card">
+        <div class="imageContainer">
+            <img src="../../assets/icons/user.png" alt="">
+            <span>Login</span> 
+        </div>
+        <form [formGroup]="reactiveForm" >
+        <input name="email" formControlName="email" required minlength="1" maxlength="250" [class.is-invalid]="email.invalid && (email.dirty || email.touched)" id="myInput" type="text" placeholder="Email - id">   
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+            <div *ngIf="email.errors?.['required']">
+              This field is required.
+            </div>
+            <div *ngIf="email.errors?.['minlength']">
+              This field must have at least 1 character.
+            </div>
+            <div *ngIf="email.errors?.['maxlength']">
+              This field must have at most 250 characters.
+            </div>
+            <div *ngIf="!email.errors?.['required'] && !email.errors?.['minlength'] && !email.errors?.['maxlength'] && email.errors?.['emailValidator']">
+              Invalid email format.
+            </div>
+          </div> 
+        <input name="password"  formControlName="password" required minlength="15" class="form-control form-control-sm" [class.is-invalid]="password.invalid && (password.dirty || password.touched)" id="password" type="password" placeholder="Password">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+            <div *ngIf="password.errors?.['required']">
+              This field is required.
+            </div>
+            <div *ngIf="password.errors?.['minlength']">
+              This field must have at least 10 characters.
+            </div>
+          </div>
+        </form>
+        <button [disabled]="password.invalid && (password.dirty || password.touched) || email.invalid && (email.dirty || email.touched)" class="Submit" (click)="submitUser()">Submit</button>
+    </div>
+   
+</div>
+

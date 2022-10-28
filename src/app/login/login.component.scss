@@ -1,0 +1,103 @@
+.container{
+    display: block;
+    position: relative;
+    background-image:url(../../assets/icons/background.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    &::-webkit-scrollbar{
+        display: hidden !important;
+    }
+    .card{
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 10px;   
+        margin: auto;
+        width: 500px ;
+        height: 400px;
+        background: transparent;
+        -webkit-backdrop-filter: blur(8px); 
+        backdrop-filter: blur(8px);
+        box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+        background-color: rgb(228 228 228 / 15%); 
+        .imageContainer{
+            display: flex;
+            flex-direction: column;
+            margin: 20px 20px;
+            
+            img{
+                width: 15%;
+                position: relative;
+                margin: 0 auto;
+            }
+            span{
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: white;
+                font-size: 22px;
+                font-weight: 600;
+                position: relative;
+                
+                margin: 10px auto 0 auto;
+            }
+        }
+        #myInput{
+            background-image: url(../../assets/icons/email.png);
+            background-repeat: no-repeat;
+            background-position: 13px center;
+            background-size: 25px;
+        }
+        #password{
+            background-image: url(../../assets/icons/lock.png);
+            background-repeat: no-repeat;
+            background-position:13px center;
+            background-size: 25px;
+        }
+        input{
+            display: block;
+            width: 70%;
+            margin: 0 auto;
+            padding: 0px 0px 0px 50px;
+            height: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            border: 0px;
+            font-size: 16px;
+            border: 1px solid transparent;
+            &:focus-visible{
+                outline: none;
+                border: 1px solid #334bfa;
+            }
+        }
+         .Submit{
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            height: 40px;
+            border-radius: 20px;
+            border:0px ;
+            font-size: 22px;
+            font-weight: 600px;
+            
+            &:hover:not(:active){
+                background-color:yellow;
+                box-shadow: rgb(54, 171, 240) 0px 20px 30px -10px;
+            }
+            &:active{
+                background-color: orangered;
+                color: white;
+                -webkit-box-shadow: inset 0px 0px 5px #0a0a0a;
+                -moz-box-shadow: inset 0px 0px 5px #0a0a0a;
+                    box-shadow: inset 0px 0px 5px #0a0a0a;
+
+            }
+         }
+    }
+}
+.invalid-feedback{
+    margin: -27px 0px 0px 68px;
+    position: absolute;
+    color: rgb(243, 7, 7);
+}

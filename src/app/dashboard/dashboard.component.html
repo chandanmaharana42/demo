@@ -1,0 +1,116 @@
+<nav>
+    <section class="left_nav">
+        <div class="logo">
+            <img  src="../../assets/icons/logo.png" alt="">
+        </div>
+        <div class="searchBar">
+            <input type="search" placeholder="Search">
+            <div class="searchIcon">
+                <img src="../../assets/icons/search.png" alt="">
+            </div>
+        </div>
+        
+            <ul class="breadcrumb">
+                <li><a href="">Production</a></li>
+                <li><a href="">Dying</a></li>
+                <li><a href="">recipes</a></li>
+                <li>Cow</li>
+              </ul>
+      
+    </section>
+    
+
+    <section class="right_nav">
+        <div (click)="profileClicked = ! profileClicked" class="userMenu" >
+            <img src="../../assets/icons/user.png" alt="">
+        </div>
+    </section>
+</nav>
+
+<body>
+    <div class="bodyWrapper">
+        <section class="sideMenu">
+            <div class="close">
+                <img src="../../assets/icons/close.png" alt="">
+            </div>
+            <div class="sideContainer">
+                <div class="profile">
+                    <img src="../../assets/icons/user_home.png" alt="">
+                    <span>Farzan Mirza</span>
+                </div>
+                <div class="menuItems" *ngFor="let item of menuItems,let i = index">
+                    <div class="items" (click)="checkClicked(i)">
+                        <img src="{{item.icon}}" alt="">
+                        <span>{{ item.name }}</span>
+                    </div>
+                    
+                    <div class="prodlist" *ngIf="clicked == 2 && i==2">
+                        <span>Dying</span>
+                        <span>Finishing</span>
+                        <span>Crusting</span>
+                    </div>
+                    <div  class="notification" *ngIf="clicked == 0 && i==0">
+                        <div class="notiItems" *ngFor="let item of notiList">
+                            <img src="{{item.icon}}" alt="">
+                            <span>{{ item.message }}</span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tasks">
+            <div class="taskTop">
+                <div class="taskHeader">
+                    <span>Tasks</span>
+                </div>
+                
+                    <mat-tab-group>
+                        <mat-tab label="Daily">
+                            <div class="cardContainer">
+                                <div  *ngFor="let item of notiList,let i = index" class="taskCard">
+                                    <span> daily task {{ i }}</span>
+                                </div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="pending"><div class="cardContainer">
+                            <div  *ngFor="let item of notiList ,let i = index" class="taskCard">
+                                <span>pending task {{ i }}</span>
+                            </div>
+                        </div>
+                     </mat-tab>
+                        <mat-tab label="Monthly"> 
+                            <div class="cardContainer">
+                                <div  *ngFor="let item of notiList,let i = index" class="taskCard">
+                                    <span>Monthly task {{ i }}</span>
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+               
+            </div>
+            <div class="taskList">
+
+            </div>
+            
+        </section>
+        <section class="analytics">
+            <div class="trends">
+                <div class="title">
+                    <span>Trends</span>
+                </div>
+            </div>
+            <div class="efficiency">
+                <div class="title">
+                    <span>Efficiency</span>
+                </div>
+            </div>
+        </section>
+    </div>    
+</body>
+ <footer>
+    <span>Project by Chandan Maharana</span>
+ </footer>
+
+ <div class="dropdown" *ngIf="profileClicked">
+    <button (click)="logout()">Logout</button>
+ </div>
